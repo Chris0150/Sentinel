@@ -9,12 +9,12 @@ export default function AnimationPlayer(props) {
 
 
   return (
-    <div style={{ backgroundColor: "#454545a8", right: "0.8%", bottom: "3.5%", width: 460, height: 75, position: "absolute" }}>
-      <FastRewindIcon style={{ color: "#3e3e3e", height: 40, marginTop: 30, width: 50 }} />
-      <SkipPreviousIcon style={{ color: "#3e3e3e", height: 40, marginTop: 30, width: 50 }} />
-      <PlayCircleFilledIcon style={{ color: "#3e3e3e", height: 40, marginTop: 30, width: 50 }} />
-      <SkipNextIcon style={{ color: "#3e3e3e", height: 40, marginTop: 30, width: 50 }} />
-      <FastForwardIcon style={{ color: "#3e3e3e", height: 40, marginTop: 30, width: 50 }} />
+    <div style={{ zIndex: 10000, backgroundColor: "#404243", right: "0%", bottom: "0%", width: "100%", height: 50, position: "absolute" }}>
+      <FastRewindIcon style={{ color: "#171717", height: 40, marginTop: 5, width: 50 }} />
+      <SkipPreviousIcon style={{ color: "#171717", height: 40, marginTop: 5, width: 50 }} />
+      <PlayCircleFilledIcon style={{ color: "#171717", height: 40, marginTop: 5, width: 50 }} />
+      <SkipNextIcon style={{ color: "#171717", height: 40, marginTop: 5, width: 50 }} />
+      <FastForwardIcon style={{ color: "#171717", height: 40, marginTop: 5, width: 50 }} />
     </div>
   );
 }

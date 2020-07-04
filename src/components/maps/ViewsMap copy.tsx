@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as MapboxGL from "mapbox-gl";
 import ReactMapboxGl, {
   Feature,
   Popup,
@@ -54,7 +55,6 @@ export interface Props {
 //////////////////////////////////// COMPONENT /////////////////////////////////////
 
 class ViewsMap extends React.Component<Props, State> {
-
   public state: State = {
     zoom: [6],
     pitch: [0],
@@ -138,10 +138,6 @@ class ViewsMap extends React.Component<Props, State> {
 
   public onPopupShowFlights = (e: any) => {
     this.setState({ showPopupFlights: true });
-  };
-
-  public onAnimate = (e: any) => {
-   
   };
 
   public render() {
@@ -311,14 +307,13 @@ class ViewsMap extends React.Component<Props, State> {
           {/* ZOOM AND ROTATION CONTROLS */}
           <ZoomControl />
           <RotationControl style={{ top: 10, right: 50 }} />
-
         </Map>
 
         {/* FLIGHTS LIST TABLE */}
         {showTrajectories ? <TableFilter /> : null}
 
         {/* ANIMATION PLAYER */}
-          <AnimationPlayer animate={this.onAnimate}/>
+          <AnimationPlayer />
       </div>
     );
   }
@@ -332,15 +327,12 @@ export default ViewsMap;
 const styles = mapStyles;
 const center = [127.72, 1.597] as [number, number];
 const token = configJSONMap.config.mapboxAccessToken;
-const Map = ReactMapboxGl({ 
-  accessToken: token, 
-  attributionControl: false
- });
-const symbolPaint = { "text-color": "black" };
-const circleLayout = { visibility: "visible" };
-const symbolPaintVolcano = { "text-color": "black" };
-const circleLayoutVolcano = { visibility: "visible" };
-const symbolLayoutVolcano = {
+const Map = ReactMapboxGl({ accessToken: token });
+const symbolPaint: MapboxGL.SymbolPaint = { "text-color": "black" };
+const circleLayout: MapboxGL.CircleLayout = { visibility: "visible" };
+const symbolPaintVolcano: MapboxGL.SymbolPaint = { "text-color": "black" };
+const circleLayoutVolcano: MapboxGL.CircleLayout = { visibility: "visible" };
+const symbolLayoutVolcano: MapboxGL.SymbolLayout = {
   "text-field": [
     "format",
     ["get", "place"],
@@ -354,14 +346,14 @@ const symbolLayoutVolcano = {
   "text-offset": [0, 0.6],
   "text-anchor": "top",
 };
-const circlePaintVolcano = {
+const circlePaintVolcano: MapboxGL.SymbolPaint = {
   "circle-color": "#ff7800",
   "circle-radius": 10,
   "circle-stroke-color": "white",
   "circle-stroke-width": 1,
   "circle-opacity": 0.5,
 };
-const symbolLayout = {
+const symbolLayout: MapboxGL.SymbolLayout = {
   "text-field": [
     "format",
     ["get", "place"],
@@ -375,7 +367,7 @@ const symbolLayout = {
   "text-offset": [0, 0.6],
   "text-anchor": "top",
 };
-const circlePaint = {
+const circlePaint: MapboxGL.CirclePaint = {
   "circle-color": "black",
   "circle-radius": 3,
   "circle-stroke-color": "white",

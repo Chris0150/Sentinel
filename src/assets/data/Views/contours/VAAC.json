@@ -1,0 +1,749 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704131000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704141000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704151000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704161000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704171000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704181000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704191000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704201000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704211000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704221000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200704231000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705001000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705011000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705021000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705031000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705041000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705051000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705061000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705071000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705081000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705091000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705101000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705111000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "level_units": "FL",
+            "level": 70,
+            "threshold": 0,
+            "time": "20200705121000",
+            "type": "vlc",
+            "buffer_time": 0,
+            "buffer_op": "none"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [127.9, 1.667],
+                  [126.917, 1.533],
+                  [126.917, 2.033],
+                  [127.9, 1.717],
+                  [127.9, 1.667]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

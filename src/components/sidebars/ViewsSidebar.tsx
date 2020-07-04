@@ -12,10 +12,10 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
-import TerrainIcon from '@material-ui/icons/Terrain';
-import LayersIcon from '@material-ui/icons/Layers';
+import TerrainIcon from "@material-ui/icons/Terrain";
+import LayersIcon from "@material-ui/icons/Layers";
 import CloudIcon from "@material-ui/icons/Cloud";
-import LinesIcon from '@material-ui/icons/LineWeight';
+import LinesIcon from "@material-ui/icons/LineWeight";
 
 type TSelectEvent = (event: React.ChangeEvent<{ value: unknown }>) => void;
 
@@ -32,6 +32,7 @@ interface IPropsModel {
   handleshowTrajectories: TSelectEvent;
   handleShowVAACOverlay: TSelectEvent;
   handleShowAirports: TSelectEvent;
+  possibleFlightLevels: string[];
 }
 
 const ViewsSidebar = (props: IPropsModel): JSX.Element => {
@@ -47,19 +48,26 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
     showAirports,
     showVAACOverlay,
     showTrajectories,
-    handleShowAirports,
+    possibleFlightLevels,
     handleSelectSource,
     handleSelectTerrain,
+    handleShowAirports,
     handleShowVAACOverlay,
     handleshowTrajectories,
-    handleSelectFlightLevels
+    handleSelectFlightLevels,
   } = props;
 
-  const aItemsFlightLevels = flightLevels;
+  const aItemsFlightLevels = possibleFlightLevels;
   const aItemsTerrains = mapStyles;
   const aItemsSources = [
-    { text: "Forecast", onClick: handleSelectSource },
-    { text: "VAAC", onClick: handleSelectSource },
+    {
+      text: "Forecast",
+      onClick: handleSelectSource,
+    },
+    {
+      text: "VAAC",
+      onClick: handleSelectSource,
+    },
   ];
   const aItemsLayers = [
     {
@@ -72,7 +80,11 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
       onClick: handleshowTrajectories,
       checked: showTrajectories,
     },
-    { text: "Airports", onClick: handleShowAirports, checked: showAirports },
+    {
+      text: "Airports",
+      onClick: handleShowAirports,
+      checked: showAirports,
+    },
   ];
 
   return (
@@ -195,6 +207,7 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
                   disabled={index === 1 || index === 2 ? true : false}
                   value={item}
                   onChange={handleSelectFlightLevels}
+                  checked={flightLevels.includes(item) ? true : false}
                 />
                 <Typography variant="body2">{item}</Typography>
               </ListItem>
@@ -202,7 +215,6 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
           })}
         </List>
       </Collapse>
-    
     </List>
   );
 };
@@ -222,19 +234,19 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     fontFamily: "Segoe UI",
     backgroundColor: "#404243",
-    color: "hsla(0,0%,100%,0.6)"
+    color: "hsla(0,0%,100%,0.6)",
   },
   subHeader: {
     paddingLeft: 70,
     textAlign: "start",
     fontFamily: "Segoe UI",
-    color: "hsla(0,0%,100%,0.6)"
+    color: "hsla(0,0%,100%,0.6)",
   },
   item: {
-    fontFamily: "Segoe UI"
+    fontFamily: "Segoe UI",
   },
   nested: {
     height: 45,
-    paddingLeft: theme.spacing(5)
-  }
+    paddingLeft: theme.spacing(5),
+  },
 }));

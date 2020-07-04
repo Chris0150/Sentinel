@@ -13,15 +13,12 @@ const Views: React.FC<IViewsPage> = (props: IViewsPage): JSX.Element => {
 
   // Initial settings
   const initialSettings = {
-    vaac: "",
-    layers: [],
-    flightLevels: [],
-    terrain: "light",
-    volcano: "Dukono",
+    terrain: "dark",
     source: "Forecast",
     showAirports: false,
     showVaacOverlay: false,
-    showTrajectories: true,
+    showTrajectories: false,
+    flightLevels: ["UNION"],
     possibleFlightLevels: ["50", "100", "150", "UNION"]
   }
 
@@ -35,7 +32,6 @@ const Views: React.FC<IViewsPage> = (props: IViewsPage): JSX.Element => {
   let [showTrajectories, setShowTrajectories] = React.useState(initialSettings.showTrajectories)
 
   // handlers
-  const handleSelectSource = (event: React.ChangeEvent<{ value: unknown }>) => setSource(event.target.value as string)
   const handleSelectTerrain = (event: React.ChangeEvent<{ value: unknown }>) => setTerrain(event.target.value as string)
   const handleShowAirports = (event: React.ChangeEvent<{ value: unknown }>) => setShowAirports(!showAirports as boolean)
   const handleShowVAACOverlay = (event: React.ChangeEvent<{ value: unknown }>) => setShowVaacOverlay(!showVaacOverlay as boolean)
@@ -43,13 +39,24 @@ const Views: React.FC<IViewsPage> = (props: IViewsPage): JSX.Element => {
   const handleSelectFlightLevels = (event: React.ChangeEvent<{ value: unknown }>) => {
     if (flightLevels.includes(event.target.value as string)) {
       flightLevels.splice(flightLevels.indexOf(event.target.value as string), 1);
-      flightLevels = [Object.values({ ...flightLevels })][0];
+      flightLevels = [Object.values({ ...flightLevels })][0] as any;
       setFlightLevels(flightLevels);
     }
     else {
       flightLevels = flightLevels.concat(event.target.value as string)
       setFlightLevels(flightLevels);
     }
+  }
+  const handleSelectSource = (event: React.ChangeEvent<{ value: unknown }>) => {
+    if(event.target.value === "VAAC") {
+      setShowVaacOverlay(true)
+      setFlightLevels([]);
+    }
+    else{
+      setShowVaacOverlay(false)
+      setFlightLevels(["UNION"]);
+    }
+    setSource(event.target.value as string)
   }
 
   return (
@@ -62,7 +69,8 @@ const Views: React.FC<IViewsPage> = (props: IViewsPage): JSX.Element => {
           showAirports={showAirports}
           showVAACOverlay={showVaacOverlay}
           showTrajectories={showTrajectories}
-          flightLevels={possibleFlightLevels}
+          flightLevels={flightLevels}
+          possibleFlightLevels={possibleFlightLevels}
           handleShowAirports={handleShowAirports}
           handleShowVAACOverlay={handleShowVAACOverlay}
           handleshowTrajectories={handleshowTrajectories}
