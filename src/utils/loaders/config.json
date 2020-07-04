@@ -1,0 +1,18 @@
+{"config" : {
+    "responsive": false,
+    "displaylogo": false,
+    "mapboxAccessToken": "pk.eyJ1IjoiZGF2aWRnYXJjaWFhIiwiYSI6ImNpdDV1ZGNpMjAwMWkyc3BieTUzdGUwY3YifQ.Kf_VJgv4VpXB2Gi6THYGPg",
+    "modeBarButtonsToRemove": [
+      "plottly",
+      "zoom2d",
+      "zoom3d",
+      "pan2d",
+      "select2d",
+      "lasso2d",
+      "resetScale2d",
+      "toggleSpikelines",
+      "hoverClosestCartesian",
+      "hoverCompareCartesian"
+    ]
+  }
+}

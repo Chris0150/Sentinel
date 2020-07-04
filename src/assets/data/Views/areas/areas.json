@@ -1,0 +1,566 @@
+[
+    {
+        "_id": "darwin",
+        "name": "Darwin",
+        "description": "Darwin VAAC (approx.)",
+        "min_lon": 60,
+        "max_lon": 160,
+        "min_lat": -85,
+        "max_lat": 20,
+        "volcanoes": [
+            {
+                "_id": 268010,
+                "country": "Halmahera-Indonesia",
+                "latitude": 1.68,
+                "longitude": 127.88,
+                "elevation": 1335,
+                "name": "Dukono",
+                "type": "Complex volcano",
+                "sources": [
+                    {
+                        "_id": "forecast",
+                        "desc": "Volcanic Ash Advisory for volcano: 268010",
+                        "name": "forecast",
+                        "forecast": {
+                            "start": "20200701000000",
+                            "finish": "20200702230000",
+                            "fls": [
+                                50,
+                                100,
+                                150,
+                                200,
+                                250,
+                                300,
+                                350,
+                                400
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                0.2
+                            ]
+                        }
+                    },
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 268010",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702131000",
+                            "finish": "20200703131000",
+                            "fls": [
+                                80
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 60,
+                    "min_lat": -85,
+                    "max_lon": 160,
+                    "max_lat": 20
+                }
+            }
+        ]
+    },
+    {
+        "_id": "london",
+        "name": "London",
+        "description": "London VAAC (approx.)",
+        "min_lon": -30,
+        "max_lon": 60,
+        "min_lat": 45,
+        "max_lat": 86,
+        "volcanoes": []
+    },
+    {
+        "_id": "tolouse",
+        "name": "Tolouse",
+        "description": "Tolouse VAAC (approx.)",
+        "min_lon": -30,
+        "max_lon": 60,
+        "min_lat": -85,
+        "max_lat": 45,
+        "volcanoes": []
+    },
+    {
+        "_id": "tokio",
+        "name": "Tokio",
+        "description": "Tokio VAAC (approx.)",
+        "min_lon": 60,
+        "max_lon": 160,
+        "min_lat": 20,
+        "max_lat": 86,
+        "volcanoes": [
+            {
+                "_id": 282030,
+                "country": "Ryukyu Is",
+                "latitude": 29.635,
+                "longitude": 129.716,
+                "elevation": 799,
+                "name": "Suwanose-jima",
+                "type": "Stratovolcanoes",
+                "sources": [
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 282030",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200701233000",
+                            "finish": "20200702233000",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 60,
+                    "min_lat": 20,
+                    "max_lon": 160,
+                    "max_lat": 86
+                }
+            },
+            {
+                "_id": 284096,
+                "country": "Volcano Is-Japan",
+                "latitude": 27.274,
+                "longitude": 140.882,
+                "elevation": 38,
+                "name": "Nishino-shima",
+                "type": "Caldera",
+                "sources": [
+                    {
+                        "_id": "forecast",
+                        "desc": "Volcanic Ash Advisory for volcano: 284096",
+                        "name": "forecast",
+                        "forecast": {
+                            "start": "20200630210000",
+                            "finish": "20200702200000",
+                            "fls": [
+                                50,
+                                100,
+                                150,
+                                200,
+                                250,
+                                300,
+                                350,
+                                400
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                0.2
+                            ]
+                        }
+                    },
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 284096",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702112000",
+                            "finish": "20200703112000",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 60,
+                    "min_lat": 20,
+                    "max_lon": 160,
+                    "max_lat": 86
+                }
+            },
+            {
+                "_id": 290380,
+                "country": "Kuril Is",
+                "latitude": 50.68,
+                "longitude": 156.02,
+                "elevation": 1156,
+                "name": "Ebeko",
+                "type": "Somma volcano",
+                "sources": [
+                    {
+                        "_id": "forecast",
+                        "desc": "Volcanic Ash Advisory for volcano: 290380",
+                        "name": "forecast",
+                        "forecast": {
+                            "start": "20200630220000",
+                            "finish": "20200702210000",
+                            "fls": [
+                                50,
+                                100,
+                                150,
+                                200,
+                                250,
+                                300,
+                                350,
+                                400
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                0.2
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 60,
+                    "min_lat": 20,
+                    "max_lon": 160,
+                    "max_lat": 86
+                }
+            }
+        ]
+    },
+    {
+        "_id": "baires",
+        "name": "Buenos Aires",
+        "description": "Buenos Aires VAAC (approx.)",
+        "min_lon": -115,
+        "max_lon": -30,
+        "min_lat": -85,
+        "max_lat": 0,
+        "volcanoes": [
+            {
+                "_id": 352010,
+                "country": "Ecuador",
+                "latitude": -0.077,
+                "longitude": -77.656,
+                "elevation": 3562,
+                "name": "Reventador",
+                "type": "Stratovolcano",
+                "sources": [
+                    {
+                        "_id": "forecast",
+                        "desc": "Volcanic Ash Advisory for volcano: 352010",
+                        "name": "forecast",
+                        "forecast": {
+                            "start": "20200702160000",
+                            "finish": "20200704150000",
+                            "fls": [
+                                50,
+                                100,
+                                150,
+                                200,
+                                250,
+                                300,
+                                350,
+                                400
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                0.2
+                            ]
+                        }
+                    },
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 352010",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702153000",
+                            "finish": "20200703153000",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": -115,
+                    "min_lat": -85,
+                    "max_lon": -30,
+                    "max_lat": 0
+                }
+            },
+            {
+                "_id": 352090,
+                "country": "Ecuador",
+                "latitude": -2.002,
+                "longitude": -78.34100000000001,
+                "elevation": 5230,
+                "name": "Sangay",
+                "type": "Stratovolcano",
+                "sources": [
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 352090",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702103000",
+                            "finish": "20200703103000",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": -115,
+                    "min_lat": -85,
+                    "max_lon": -30,
+                    "max_lat": 0
+                }
+            },
+            {
+                "_id": 354006,
+                "country": "Perú",
+                "latitude": -15.78,
+                "longitude": -71.85,
+                "elevation": 5967,
+                "name": "Sabancaya",
+                "type": "Stratovolcanoes",
+                "sources": [
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 354006",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702112000",
+                            "finish": "20200703112000",
+                            "fls": [
+                                240
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": -115,
+                    "min_lat": -85,
+                    "max_lon": -30,
+                    "max_lat": 0
+                }
+            },
+            {
+                "_id": 357070,
+                "country": "Chile-C",
+                "latitude": -36.863,
+                "longitude": -71.377,
+                "elevation": 3212,
+                "name": "Chillán, Nevados de",
+                "type": "Stratovolcano",
+                "sources": [
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 357070",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702123000",
+                            "finish": "20200703123000",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": -115,
+                    "min_lat": -85,
+                    "max_lon": -30,
+                    "max_lat": 0
+                }
+            }
+        ]
+    },
+    {
+        "_id": "washington",
+        "name": "Washington",
+        "description": "Washington VAAC (approx.)",
+        "min_lon": 160,
+        "max_lon": -30,
+        "min_lat": 0,
+        "max_lat": 45,
+        "volcanoes": [
+            {
+                "_id": 341090,
+                "country": "México",
+                "latitude": 19.023,
+                "longitude": -98.62200000000001,
+                "elevation": 5426,
+                "name": "Popocatépetl",
+                "type": "Stratovolcanoes",
+                "sources": [
+                    {
+                        "_id": "forecast",
+                        "desc": "Volcanic Ash Advisory for volcano: 341090",
+                        "name": "forecast",
+                        "forecast": {
+                            "start": "20200630220000",
+                            "finish": "20200702210000",
+                            "fls": [
+                                50,
+                                100,
+                                150,
+                                200,
+                                250,
+                                300,
+                                350,
+                                400
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                0.2
+                            ]
+                        }
+                    },
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 341090",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200702140600",
+                            "finish": "20200703140600",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 160,
+                    "min_lat": 0,
+                    "max_lon": -30,
+                    "max_lat": 45
+                }
+            },
+            {
+                "_id": 342090,
+                "country": "Guatemala",
+                "latitude": 14.472999999999999,
+                "longitude": -90.88,
+                "elevation": 3763,
+                "name": "Fuego",
+                "type": "Stratovolcano",
+                "sources": [
+                    {
+                        "_id": "vaac",
+                        "desc": "Volcanic Ash Advisory for volcano: 342090",
+                        "name": "vaac",
+                        "forecast": {
+                            "start": "20200701195000",
+                            "finish": "20200702195000",
+                            "fls": [
+                                -1
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                -1
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 160,
+                    "min_lat": 0,
+                    "max_lon": -30,
+                    "max_lat": 45
+                }
+            }
+        ]
+    },
+    {
+        "_id": "anchorage",
+        "name": "Anchorage",
+        "description": "Anchorage VAAC (approx.)",
+        "min_lon": 160,
+        "max_lon": -130,
+        "min_lat": 45,
+        "max_lat": 86,
+        "volcanoes": [
+            {
+                "_id": 300260,
+                "country": "Kamchatka",
+                "latitude": 56.056999999999995,
+                "longitude": 160.638,
+                "elevation": 4835,
+                "name": "Kliuchevskoi",
+                "type": "Stratovolcano",
+                "sources": [
+                    {
+                        "_id": "forecast",
+                        "desc": "Volcanic Ash Advisory for volcano: 300260",
+                        "name": "forecast",
+                        "forecast": {
+                            "start": "20200701000000",
+                            "finish": "20200702230000",
+                            "fls": [
+                                50,
+                                100,
+                                150,
+                                200,
+                                250,
+                                300,
+                                350,
+                                400
+                            ],
+                            "dt": 60,
+                            "thresholds": [
+                                0.2
+                            ]
+                        }
+                    }
+                ],
+                "area": {
+                    "min_lon": 160,
+                    "min_lat": 45,
+                    "max_lon": -130,
+                    "max_lat": 86
+                }
+            }
+        ]
+    },
+    {
+        "_id": "montreal",
+        "name": "Montreal",
+        "description": "Montreal VAAC (approx.)",
+        "min_lon": -130,
+        "max_lon": -30,
+        "min_lat": 45,
+        "max_lat": 86,
+        "volcanoes": []
+    },
+    {
+        "_id": "wellington",
+        "name": "Wellington",
+        "description": "Wellington VAAC (approx.)",
+        "min_lon": 160,
+        "max_lon": -115,
+        "min_lat": -85,
+        "max_lat": 0,
+        "volcanoes": []
+    }
+]
