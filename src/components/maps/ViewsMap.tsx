@@ -7,12 +7,12 @@ import ReactMapboxGl, {
   ZoomControl,
   RotationControl,
 } from "react-mapbox-gl";
-import { mapStyles, configJSONMap } from "../../utils/utils";
 import {
   loaderContours50,
   loaderContoursUNION,
-  loaderContoursVAAC
+  loaderContoursVAAC,
 } from "../../utils/loaders/Views/loaderJSONContours";
+import { mapStyles, configJSONMap } from "../../utils/utils";
 import loaderTrajectories from "../../utils/loaders/Views/loaderJSONTrajectories";
 import loaderAirports from "../../utils/loaders/Views/loaderJSONAirports";
 import loaderAreas from "../../utils/loaders/Views/loaderJSONAreas";
@@ -20,44 +20,41 @@ import AnimationPlayer from "../elements/AnimationPlayer";
 import TableFilter from "../elements/TableFilter";
 import Button from "@material-ui/core/Button";
 import Point from "@material-ui/icons/FiberManualRecord";
-// import Geo from "../elements/_geoView"
-
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// INTERFACES ////////////////////////////////////
 
-export interface State {
-  popup?: any
-  zoom?: [number]
-  pitch?: [number]
-  terrain?: string
-  trajectories?: any
-  showPopup?: boolean
-  renderLayer: boolean
-  showAirports?: boolean
-  flightLevels?: string[]
-  center?: [number, number]
-  showVAACOverlay?: boolean
-  showTrajectories?: boolean
-  showPopup3DView?: boolean
-  showPopupFlights?: boolean
+export interface IState {
+  popup: any;
+  zoom: [number];
+  pitch: [number];
+  terrain: string;
+  trajectories: any;
+  showPopup: boolean;
+  renderLayer: boolean;
+  showAirports: boolean;
+  flightLevels: string[];
+  center: [number, number];
+  showVAACOverlay: boolean;
+  showTrajectories: boolean;
+  showPopup3DView: boolean;
+  showPopupFlights: boolean;
 }
-export interface Props {
-  terrain?: string
-  flightLevels?: string[]
-  showAirports?: boolean
-  showVAACOverlay?: boolean
-  showTrajectories?: boolean
-  onStyleLoad?: (map: any) => any
+export interface IProps {
+  terrain: string;
+  flightLevels: string[];
+  showAirports: boolean;
+  showVAACOverlay: boolean;
+  showTrajectories: boolean;
+  onStyleLoad?: (map: any) => any;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// COMPONENT /////////////////////////////////////
 
-class ViewsMap extends React.Component<Props, State> {
-
-  public state: State = {
-    zoom: [6],
+class ViewsMap extends React.Component<IProps, IState> {
+  public state: IState = {
     pitch: [0],
+    zoom: [1.6],
     center: center,
     showPopup: false,
     renderLayer: true,
@@ -84,25 +81,21 @@ class ViewsMap extends React.Component<Props, State> {
 
   public onClickAirport = (e: any) => {
     let airportProperties = e.features[0].properties;
+    let airportLongitude = airportProperties.lon;
+    let airportLatitude = airportProperties.lat;
+    let airportName = airportProperties.place;
+    let airportIata = airportProperties.iata;
 
     this.setState({
       zoom: [16],
       pitch: [60],
-      center: [airportProperties.lon, airportProperties.lat],
+      center: [airportLongitude, airportLatitude],
       showPopup: true,
       popup: {
         type: "airport",
-        title:
-          "Aiport: " +
-          airportProperties.place +
-          " (" +
-          airportProperties.iata +
-          ")",
-        text:
-          "coordinates: [" +
-          [airportProperties.lon, airportProperties.lat] +
-          "]",
-        coords: [airportProperties.lon, airportProperties.lat],
+        coords: [airportLongitude, airportLatitude],
+        title: "Aiport: " + airportName + " (" + airportIata + ")",
+        text: "coordinates: [" + [airportLongitude, airportLatitude] + "]",
         text2: "Impact: ",
         text3: "(C = 0mg/m3)",
       },
@@ -111,23 +104,26 @@ class ViewsMap extends React.Component<Props, State> {
 
   public onClickVolcano = (e: any) => {
     let volcanoProperties = e.features[0].properties;
+    let volcanoLongitude = volcanoProperties.lon;
+    let volcanoLatitude = volcanoProperties.lat;
+    let volcanoName = volcanoProperties.place;
+    let volcanoElevation = volcanoProperties.elevation;
+    let volcanoCountry = volcanoProperties.country;
+    let volcanoType = volcanoProperties.type;
 
     this.setState({
       zoom: [8],
       pitch: [60],
-      center: [volcanoProperties.lon, volcanoProperties.lat],
+      center: [volcanoLongitude, volcanoLatitude],
       showPopup: true,
       popup: {
         type: "volcano",
-        title: "Volcano: " + volcanoProperties.place,
-        text:
-          "coordinates: [" +
-          [volcanoProperties.lon, volcanoProperties.lat] +
-          "]",
-        coords: [volcanoProperties.lon, volcanoProperties.lat],
-        text2: "Type: " + volcanoProperties.type,
-        text4: "Elevation: " + volcanoProperties.elevation + "m",
-        text5: "Country: " + volcanoProperties.country,
+        title: "Volcano: " + volcanoName,
+        coords: [volcanoLongitude, volcanoLatitude],
+        text: "coordinates: [" + [volcanoLongitude, volcanoLatitude] + "]",
+        text2: "Type: " + volcanoType,
+        text4: "Elevation: " + volcanoElevation + "m",
+        text5: "Country: " + volcanoCountry,
       },
     });
   };
@@ -141,16 +137,36 @@ class ViewsMap extends React.Component<Props, State> {
   };
 
   public onAnimate = (e: any) => {
-   
+    // debugger
   };
 
   public render() {
-    let {showTrajectories,showAirports,showVAACOverlay, terrain,flightLevels} = this.props;
-    let {center,zoom,pitch,trajectories,popup,showPopup,showPopup3DView} = this.state;
+    let {
+      center,
+      zoom,
+      pitch,
+      trajectories,
+      popup,
+      showPopup,
+      showPopup3DView,
+    } = this.state;
+    let {
+      showTrajectories,
+      showAirports,
+      showVAACOverlay,
+      terrain,
+      flightLevels,
+    } = this.props;
 
     return (
       <div
-        style={{ position: "relative", flex: 1, height: "100%", width: "100%" }}
+        style={{
+          position: "relative",
+          flex: 1,
+          height: "100%",
+          width: "100%",
+          overflowX: "hidden",
+        }}
       >
         {/* MAIN MAP */}
         <Map
@@ -238,12 +254,12 @@ class ViewsMap extends React.Component<Props, State> {
           ) : null}
 
           {/* 3D-VIEW POPUP */}
-          {showPopup3DView ? 
-          <>
-            {/* <Geo /> */}
-            <div id="canvas" />
-          </>
-           : null}
+          {showPopup3DView ? (
+            <>
+       
+            </>
+           
+          ) : null}
 
           {/* LAYER 3D-BUILDINGS */}
           <Layer
@@ -311,14 +327,13 @@ class ViewsMap extends React.Component<Props, State> {
           {/* ZOOM AND ROTATION CONTROLS */}
           <ZoomControl />
           <RotationControl style={{ top: 10, right: 50 }} />
-
         </Map>
 
         {/* FLIGHTS LIST TABLE */}
         {showTrajectories ? <TableFilter /> : null}
 
         {/* ANIMATION PLAYER */}
-          <AnimationPlayer animate={this.onAnimate}/>
+        <AnimationPlayer animate={this.onAnimate} />
       </div>
     );
   }
@@ -328,14 +343,15 @@ export default ViewsMap;
 
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// CONSTANTS ////////////////////////////////////
-
-const styles = mapStyles;
-const center = [127.72, 1.597] as [number, number];
+ 
 const token = configJSONMap.config.mapboxAccessToken;
-const Map = ReactMapboxGl({ 
-  accessToken: token, 
-  attributionControl: false
- });
+const Map = ReactMapboxGl({
+  accessToken: token,
+  attributionControl: false,
+  minZoom: 1.6,
+});
+const styles = mapStyles;
+const center = [41.38, 2.17] as [number, number];
 const symbolPaint = { "text-color": "black" };
 const circleLayout = { visibility: "visible" };
 const symbolPaintVolcano = { "text-color": "black" };
@@ -402,7 +418,7 @@ const contoursPaintUNION = {
   "fill-color": "red",
   "fill-opacity": 0.05,
 };
-const contoursPaintVAAC= {
+const contoursPaintVAAC = {
   "fill-color": "purple",
   "fill-opacity": 0.05,
 };

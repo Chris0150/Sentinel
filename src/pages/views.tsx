@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ViewsNavbar from "../components/navbars/ViewsNavbar";
-import Viewsidebar from "../components/sidebars/ViewsSidebar";
 import Loader from "../components/elements/Loader";
+import ViewsNavbar from "../components/navbars/ViewsNavbar";
+import ViewsSidebar from "../components/sidebars/ViewsSidebar";
 
 const ViewsMap = React.lazy(() => import("../components/maps/ViewsMap"));
 
@@ -13,11 +13,12 @@ const Views: React.FC<IViewsPage> = (props: IViewsPage): JSX.Element => {
 
   // Initial settings
   const initialSettings = {
-    terrain: "dark",
-    source: "Forecast",
-    showAirports: false,
-    showVaacOverlay: false,
     showTrajectories: false,
+    showVaacOverlay: false,
+    showAirports: false,
+    terrain: "light",
+    source: "Forecast",
+    volcanoes: ["All"],
     flightLevels: ["UNION"],
     possibleFlightLevels: ["50", "100", "150", "UNION"]
   }
@@ -63,13 +64,13 @@ const Views: React.FC<IViewsPage> = (props: IViewsPage): JSX.Element => {
     <>
       <ViewsNavbar />
       <div className={classes.root}>
-        <Viewsidebar
+        <ViewsSidebar
           source={source}
           terrain={terrain}
+          flightLevels={flightLevels}
           showAirports={showAirports}
           showVAACOverlay={showVaacOverlay}
           showTrajectories={showTrajectories}
-          flightLevels={flightLevels}
           possibleFlightLevels={possibleFlightLevels}
           handleShowAirports={handleShowAirports}
           handleShowVAACOverlay={handleShowVAACOverlay}

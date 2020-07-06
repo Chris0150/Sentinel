@@ -7,8 +7,6 @@ import List from "@material-ui/core/List";
 import Collapse from "@material-ui/core/Collapse";
 import ListItem from "@material-ui/core/ListItem";
 import Checkbox from "@material-ui/core/Checkbox";
-import ExpandMore from "@material-ui/icons/ExpandMore";
-import ExpandLess from "@material-ui/icons/ExpandLess";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
@@ -16,31 +14,41 @@ import TerrainIcon from "@material-ui/icons/Terrain";
 import LayersIcon from "@material-ui/icons/Layers";
 import CloudIcon from "@material-ui/icons/Cloud";
 import LinesIcon from "@material-ui/icons/LineWeight";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+
+////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// INTERFACES ////////////////////////////////////
 
 type TSelectEvent = (event: React.ChangeEvent<{ value: unknown }>) => void;
 
-interface IPropsModel {
+interface IProps {
   source: string;
   terrain: string;
   flightLevels: string[];
   showAirports: boolean;
   showVAACOverlay: boolean;
   showTrajectories: boolean;
+  possibleFlightLevels: string[];
   handleSelectSource: TSelectEvent;
   handleSelectTerrain: TSelectEvent;
   handleSelectFlightLevels: TSelectEvent;
   handleshowTrajectories: TSelectEvent;
   handleShowVAACOverlay: TSelectEvent;
   handleShowAirports: TSelectEvent;
-  possibleFlightLevels: string[];
 }
 
-const ViewsSidebar = (props: IPropsModel): JSX.Element => {
+////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// COMPONENT /////////////////////////////////////
+
+const ViewsSidebar = (props: IProps): JSX.Element => {
   const classes = useStyles();
-  const [open1, toggleOpen1] = useToggleState(false);
-  const [open2, toggleOpen2] = useToggleState(true);
+
+  // hooks
+  const [open2, toggleOpen2] = useToggleState(false);
   const [open3, toggleOpen3] = useToggleState(true);
   const [open4, toggleOpen4] = useToggleState(true);
+  const [open5, toggleOpen5] = useToggleState(true);
   const {
     source,
     terrain,
@@ -57,6 +65,7 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
     handleSelectFlightLevels,
   } = props;
 
+  // Sidebar items
   const aItemsFlightLevels = possibleFlightLevels;
   const aItemsTerrains = mapStyles;
   const aItemsSources = [
@@ -102,15 +111,16 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
         </ListSubheader>
       }
     >
+
       {/* TERRAIN */}
-      <ListItem className={classes.item} button onClick={toggleOpen1}>
+      <ListItem className={classes.item} button onClick={toggleOpen2}>
         <ListItemIcon>
           <TerrainIcon />
         </ListItemIcon>
         <ListItemText primary="Terrain" />
-        {open1 ? <ExpandLess /> : <ExpandMore />}
+        {open2 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <Collapse in={open1} timeout="auto">
+      <Collapse in={open2} timeout="auto">
         <List component="div" disablePadding>
           {Object.keys(aItemsTerrains).map((item, index) => {
             return (
@@ -132,13 +142,13 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
       </Collapse>
 
       {/* SOURCE */}
-      <ListItem className={classes.item} button onClick={toggleOpen2}>
+      <ListItem className={classes.item} button onClick={toggleOpen3}>
         <ListItemIcon>
           <CloudIcon />
         </ListItemIcon>
         <ListItemText primary="Source" />
       </ListItem>
-      <Collapse in={open2} timeout="auto">
+      <Collapse in={open3} timeout="auto">
         <List component="div" disablePadding>
           {aItemsSources.map((item, index) => {
             return (
@@ -160,13 +170,13 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
       </Collapse>
 
       {/* LAYERS */}
-      <ListItem className={classes.item} button onClick={toggleOpen3}>
+      <ListItem className={classes.item} button onClick={toggleOpen4}>
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
         <ListItemText primary="Layers" />
       </ListItem>
-      <Collapse in={open3} timeout="auto">
+      <Collapse in={open4} timeout="auto">
         <List component="div" disablePadding>
           {aItemsLayers.map((item, index) => {
             return (
@@ -188,13 +198,13 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
       </Collapse>
 
       {/* FLIGHT LEVELS */}
-      <ListItem className={classes.item} button onClick={toggleOpen4}>
+      <ListItem className={classes.item} button onClick={toggleOpen5}>
         <ListItemIcon>
           <LinesIcon />
         </ListItemIcon>
         <ListItemText primary="Flight Levels" />
       </ListItem>
-      <Collapse in={open4} timeout="auto">
+      <Collapse in={open5} timeout="auto">
         <List component="div" disablePadding>
           {aItemsFlightLevels.map((item, index) => {
             return (
@@ -215,6 +225,7 @@ const ViewsSidebar = (props: IPropsModel): JSX.Element => {
           })}
         </List>
       </Collapse>
+    
     </List>
   );
 };

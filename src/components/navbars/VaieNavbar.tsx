@@ -30,7 +30,7 @@ const VaieNavbar = (props: IPropsModel): JSX.Element => {
       <AppBar position="static" >
         <Toolbar variant="dense" className={classes.toolbar} style={{background: weatherColor}}>
 
-          <img alt="" style={{ height: 30, marginRight: 76, marginLeft: 30 }} src={logo} />
+          {/* <img alt="" style={{ height: 30, marginRight: 76, marginLeft: 30 }} src={logo} /> */}
 
           <Divider className={classes.divider} orientation="vertical" flexItem />
 
