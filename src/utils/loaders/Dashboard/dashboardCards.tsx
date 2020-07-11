@@ -5,7 +5,7 @@ import vaie from "../../../assets/images/icons/vaie.png"
  const cardViews = {
     src : views,
     title: "VIEWS",
-    text : "57 Volcanic events",
+    text : "57 active volcanoes",
     background : "linear-gradient(to top, #000000f2 0%, #2c5ca7 100%)",
   }
   const cardEdose = {

@@ -30,8 +30,8 @@ const DashboardNavbar = (props: IPropsModel): JSX.Element => {
       <AppBar position="static" >
         <Toolbar variant="dense" className={classes.toolbar} style={{background: homeColor}}>
 
-        <div style={{ height: 30, marginRight: 200, marginLeft: 30 }}></div>
-          {/* <img alt="" style={{ height: 30, marginRight: 76, marginLeft: 30 }} src={logo} /> */}
+        {/* <div style={{ height: 30, marginRight: 200, marginLeft: 30 }}></div> */}
+          <img alt="" style={{ height: 30, marginRight: 76, marginLeft: 30 }} src={logo} />
 
           <Divider className={classes.divider} orientation="vertical" flexItem />
 

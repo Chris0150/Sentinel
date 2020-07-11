@@ -20,14 +20,29 @@ import AnimationPlayer from "../elements/AnimationPlayer";
 import TableFilter from "../elements/TableFilter";
 import Button from "@material-ui/core/Button";
 import Point from "@material-ui/icons/FiberManualRecord";
+
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// INTERFACES ////////////////////////////////////
 
+export interface MapMouseEvent extends React.MouseEvent<HTMLElement> {
+  features: {
+    properties: {
+      lon: any;
+      lat: any;
+      place: any;
+      iata?: any;
+      elevation?: any;
+      country?: any;
+      type?: any;
+    };
+  }[];
+}
 export interface IState {
   popup: any;
   zoom: [number];
   pitch: [number];
   terrain: string;
+  customLayers: [];
   trajectories: any;
   showPopup: boolean;
   renderLayer: boolean;
@@ -41,6 +56,7 @@ export interface IState {
 }
 export interface IProps {
   terrain: string;
+  customLayers: any;
   flightLevels: string[];
   showAirports: boolean;
   showVAACOverlay: boolean;
@@ -52,6 +68,11 @@ export interface IProps {
 //////////////////////////////////// COMPONENT /////////////////////////////////////
 
 class ViewsMap extends React.Component<IProps, IState> {
+  /**
+   * Map state object.
+   * @interface IState
+   * @public
+   */
   public state: IState = {
     pitch: [0],
     zoom: [1.6],
@@ -62,6 +83,7 @@ class ViewsMap extends React.Component<IProps, IState> {
     showPopupFlights: false,
     trajectories: undefined,
     terrain: this.props.terrain,
+    customLayers: this.props.customLayers,
     flightLevels: this.props.flightLevels,
     showAirports: this.props.showAirports,
     showVAACOverlay: this.props.showVAACOverlay,
@@ -69,22 +91,37 @@ class ViewsMap extends React.Component<IProps, IState> {
     popup: { coords: [0, 0], title: "", text: "" },
   };
 
+  /**
+   * Lifecycle method.
+   * @param {}
+   * @public
+   */
   public async componentDidMount() {
-    let jsonTrajectories = await loaderTrajectories();
+    const jsonTrajectories = await loaderTrajectories();
     this.setState({ trajectories: jsonTrajectories });
   }
 
+  /**
+   * Load map internal styles.
+   * @param {any} map The map object to style.
+   * @private
+   */
   private onMapStyleLoad = (map: any) => {
     const { onStyleLoad } = this.props;
     return onStyleLoad && onStyleLoad(map);
   };
 
-  public onClickAirport = (e: any) => {
-    let airportProperties = e.features[0].properties;
-    let airportLongitude = airportProperties.lon;
-    let airportLatitude = airportProperties.lat;
-    let airportName = airportProperties.place;
-    let airportIata = airportProperties.iata;
+  /**
+   * Select an aiport directly in map.
+   * @param {MapMouseEvent} event The map click event.
+   * @public
+   */
+  public onClickAirport = (event: MapMouseEvent) => {
+    const airportProperties:any = event.features[0].properties;
+    const airportLongitude:number = airportProperties.lon;
+    const airportLatitude:number = airportProperties.lat;
+    const airportName:string = airportProperties.place;
+    const airportIata:string = airportProperties.iata;
 
     this.setState({
       zoom: [16],
@@ -102,20 +139,25 @@ class ViewsMap extends React.Component<IProps, IState> {
     });
   };
 
-  public onClickVolcano = (e: any) => {
-    let volcanoProperties = e.features[0].properties;
-    let volcanoLongitude = volcanoProperties.lon;
-    let volcanoLatitude = volcanoProperties.lat;
-    let volcanoName = volcanoProperties.place;
-    let volcanoElevation = volcanoProperties.elevation;
-    let volcanoCountry = volcanoProperties.country;
-    let volcanoType = volcanoProperties.type;
+  /**
+   * Select a volcano directly in map.
+   * @param {MapMouseEvent} event The map click event.
+   * @public
+   */
+  public onClickVolcano = (event: MapMouseEvent) => {
+    const volcanoProperties:any = event.features[0].properties;
+    const volcanoElevation:number = volcanoProperties.elevation;
+    const volcanoCountry:string = volcanoProperties.country;
+    const volcanoLongitude:number = volcanoProperties.lon;
+    const volcanoLatitude:number = volcanoProperties.lat;
+    const volcanoName:string = volcanoProperties.place;
+    const volcanoType:string = volcanoProperties.type;
 
     this.setState({
-      zoom: [8],
-      pitch: [60],
-      center: [volcanoLongitude, volcanoLatitude],
+      zoom: [10],
+      pitch: [45],
       showPopup: true,
+      center: [volcanoLongitude, volcanoLatitude],
       popup: {
         type: "volcano",
         title: "Volcano: " + volcanoName,
@@ -128,18 +170,38 @@ class ViewsMap extends React.Component<IProps, IState> {
     });
   };
 
-  public onPopupShow3DView = (e: any) => {
+  /**
+   * Click the button "Show 3D-View" in Volcano popup.
+   * @param {React.MouseEvent} event The button click event.
+   * @public
+   */
+  public onPopupShow3DView = (event: React.MouseEvent) => {
     this.setState({ showPopup3DView: true });
   };
 
-  public onPopupShowFlights = (e: any) => {
+  /**
+   * Click the button "Show Flights" in Airport popup.
+   * @param {React.MouseEvent} event The button click event.
+   * @public
+   */
+  public onPopupShowFlights = (event: React.MouseEvent) => {
     this.setState({ showPopupFlights: true });
   };
 
-  public onAnimate = (e: any) => {
-    // debugger
+  /**
+   * Start the animation in AnimationPlayer component.
+   * @param {React.MouseEvent} event The button click event.
+   * @public
+   */
+  public onAnimate = (event: React.MouseEvent) => {
+    // ...
   };
 
+  /**
+   * Lifecycle method.
+   * @param {}
+   * @public
+   */
   public render() {
     let {
       center,
@@ -156,16 +218,17 @@ class ViewsMap extends React.Component<IProps, IState> {
       showVAACOverlay,
       terrain,
       flightLevels,
+      // customLayers
     } = this.props;
 
     return (
       <div
         style={{
-          position: "relative",
           flex: 1,
-          height: "100%",
           width: "100%",
+          height: "100%",
           overflowX: "hidden",
+          position: "relative",
         }}
       >
         {/* MAIN MAP */}
@@ -254,12 +317,10 @@ class ViewsMap extends React.Component<IProps, IState> {
           ) : null}
 
           {/* 3D-VIEW POPUP */}
-          {showPopup3DView ? (
-            <>
-       
-            </>
-           
-          ) : null}
+          {showPopup3DView ? <></> : null}
+
+          {/* CUSTOM LAYERS */}
+          {/* {customLayers} */}
 
           {/* LAYER 3D-BUILDINGS */}
           <Layer
@@ -343,7 +404,7 @@ export default ViewsMap;
 
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// CONSTANTS ////////////////////////////////////
- 
+
 const token = configJSONMap.config.mapboxAccessToken;
 const Map = ReactMapboxGl({
   accessToken: token,
@@ -411,16 +472,23 @@ const buildingsPaint = {
   "fill-extrusion-opacity": 0.6,
 };
 const contoursPaint50 = {
-  "fill-color": "blue",
-  "fill-opacity": 0.1,
+  // "fill-color": "blue",
+  "fill-color": "#dacea9",
+
+  // "fill-opacity": 0.1,
+  "fill-opacity": 0.5,
 };
 const contoursPaintUNION = {
   "fill-color": "red",
-  "fill-opacity": 0.05,
+  // "fill-opacity": 0.05,
+  "fill-opacity": 0.2,
 };
 const contoursPaintVAAC = {
-  "fill-color": "purple",
-  "fill-opacity": 0.05,
+  // "fill-color": "purple",
+  "fill-color": "#cfbdbd",
+  "fill-opacity": 0.3,
+  // 'line-dasharray': [2, 1],
+  // "fill-opacity": 0.05,
 };
 const trajectoriesPaint = {
   "line-color": "#888",

@@ -1,52 +1,43 @@
 import React from "react";
-import { useToggleState } from "../../utils/utils";
 import { makeStyles } from "@material-ui/core/styles";
 import { mapStyles } from "../../utils/constants/mapStyles";
-import { Typography } from "@material-ui/core";
-import List from "@material-ui/core/List";
-import Collapse from "@material-ui/core/Collapse";
-import ListItem from "@material-ui/core/ListItem";
-import Checkbox from "@material-ui/core/Checkbox";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import TerrainIcon from "@material-ui/icons/Terrain";
-import LayersIcon from "@material-ui/icons/Layers";
-import CloudIcon from "@material-ui/icons/Cloud";
-import LinesIcon from "@material-ui/icons/LineWeight";
-import ExpandMore from "@material-ui/icons/ExpandMore";
-import ExpandLess from "@material-ui/icons/ExpandLess";
+import { useToggleState } from "../../utils/utils";
+import { Terrain, Layers, Cloud, LineWeight, ExpandMore, ExpandLess } from "@material-ui/icons";
+import { Typography, List, ListItem, Collapse, Checkbox, ListItemIcon, ListItemText, ListSubheader } from "@material-ui/core";
+import CSVParser from "../../utils/loaders/Views/loaderCSV";
 
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// INTERFACES ////////////////////////////////////
 
-type TSelectEvent = (event: React.ChangeEvent<{ value: unknown }>) => void;
+type TEvent = (event: React.ChangeEvent<{ value: unknown }>) => void;
 
 interface IProps {
   source: string;
   terrain: string;
+  customLayers: any
   flightLevels: string[];
   showAirports: boolean;
   showVAACOverlay: boolean;
   showTrajectories: boolean;
   possibleFlightLevels: string[];
-  handleSelectSource: TSelectEvent;
-  handleSelectTerrain: TSelectEvent;
-  handleSelectFlightLevels: TSelectEvent;
-  handleshowTrajectories: TSelectEvent;
-  handleShowVAACOverlay: TSelectEvent;
-  handleShowAirports: TSelectEvent;
+  handleAddLayer: TEvent;
+  handleSelectSource: TEvent;
+  handleSelectTerrain: TEvent;
+  handleSelectFlightLevels: TEvent;
+  handleShowTrajectories: TEvent;
+  handleShowVAACOverlay: TEvent;
+  handleShowAirports: TEvent;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// COMPONENT /////////////////////////////////////
 
-const ViewsSidebar = (props: IProps): JSX.Element => {
+const ViewsSidebar:React.FC<IProps> = (props: IProps): JSX.Element => {
   const classes = useStyles();
 
   // hooks
   const [open2, toggleOpen2] = useToggleState(false);
-  const [open3, toggleOpen3] = useToggleState(true);
+  const [open3, toggleOpen3] = useToggleState(false);
   const [open4, toggleOpen4] = useToggleState(true);
   const [open5, toggleOpen5] = useToggleState(true);
   const {
@@ -57,16 +48,16 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
     showVAACOverlay,
     showTrajectories,
     possibleFlightLevels,
+    handleAddLayer,
     handleSelectSource,
     handleSelectTerrain,
     handleShowAirports,
     handleShowVAACOverlay,
-    handleshowTrajectories,
+    handleShowTrajectories,
     handleSelectFlightLevels,
   } = props;
 
   // Sidebar items
-  const aItemsFlightLevels = possibleFlightLevels;
   const aItemsTerrains = mapStyles;
   const aItemsSources = [
     {
@@ -86,7 +77,7 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
     },
     {
       text: "Trajectories",
-      onClick: handleshowTrajectories,
+      onClick: handleShowTrajectories,
       checked: showTrajectories,
     },
     {
@@ -95,11 +86,11 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
       checked: showAirports,
     },
   ];
+  const aItemsFlightLevels = possibleFlightLevels;
 
   return (
     <List
       component="nav"
-      aria-labelledby="nested-list-subheader"
       className={classes.root}
       subheader={
         <ListSubheader
@@ -111,11 +102,10 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
         </ListSubheader>
       }
     >
-
       {/* TERRAIN */}
       <ListItem className={classes.item} button onClick={toggleOpen2}>
         <ListItemIcon>
-          <TerrainIcon />
+          <Terrain />
         </ListItemIcon>
         <ListItemText primary="Terrain" />
         {open2 ? <ExpandLess /> : <ExpandMore />}
@@ -144,9 +134,10 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
       {/* SOURCE */}
       <ListItem className={classes.item} button onClick={toggleOpen3}>
         <ListItemIcon>
-          <CloudIcon />
+          <Cloud />
         </ListItemIcon>
         <ListItemText primary="Source" />
+        {open3 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open3} timeout="auto">
         <List component="div" disablePadding>
@@ -172,9 +163,10 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
       {/* LAYERS */}
       <ListItem className={classes.item} button onClick={toggleOpen4}>
         <ListItemIcon>
-          <LayersIcon />
+          <Layers />
         </ListItemIcon>
         <ListItemText primary="Layers" />
+        {open4 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open4} timeout="auto">
         <List component="div" disablePadding>
@@ -194,15 +186,18 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
               </ListItem>
             );
           })}
+          <CSVParser onUploadFile={handleAddLayer}/>
+
         </List>
       </Collapse>
 
       {/* FLIGHT LEVELS */}
       <ListItem className={classes.item} button onClick={toggleOpen5}>
         <ListItemIcon>
-          <LinesIcon />
+          <LineWeight />
         </ListItemIcon>
         <ListItemText primary="Flight Levels" />
+        {open5 ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open5} timeout="auto">
         <List component="div" disablePadding>
@@ -214,7 +209,7 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
                 className={classes.nested}
               >
                 <Checkbox
-                  disabled={index === 1 || index === 2 ? true : false}
+                  disabled={index === 1 || index === 2 || index === 3 ? true : false}
                   value={item}
                   onChange={handleSelectFlightLevels}
                   checked={flightLevels.includes(item) ? true : false}
@@ -225,12 +220,14 @@ const ViewsSidebar = (props: IProps): JSX.Element => {
           })}
         </List>
       </Collapse>
-    
     </List>
   );
 };
 
 export default ViewsSidebar;
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// STYLES //////////////////////////////////////
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -254,10 +251,19 @@ const useStyles = makeStyles((theme) => ({
     color: "hsla(0,0%,100%,0.6)",
   },
   item: {
+    // width: "14%",
     fontFamily: "Segoe UI",
   },
   nested: {
     height: 45,
     paddingLeft: theme.spacing(5),
   },
+  addLayerButton: {
+    width: "75%",
+    height: 30,
+    marginTop: 10,
+    marginBottom: 15,
+    textTransform: "initial",
+    backgroundColor: "#5a5a5a",
+  }
 }));
